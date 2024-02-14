@@ -1,6 +1,6 @@
 import './App.css';
-import Employee from './Employee';
-import NewEmployee from './NewEmployee';
+import Employee from './Employee/Employee';
+import NewEmployee from './Employee/NewEmployee';
 
 function App() {
   const employees = [
