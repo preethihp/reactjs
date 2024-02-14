@@ -21,8 +21,9 @@
 
 
 .employee-details h2{
-    color: aliceblue;
-    font-size: 1rem;
+    
+    color: #f0f8ff;
+    font-size: 1.5rem;
     flex : 1;
     margin: 0, 1rem;
     color: white;
@@ -38,7 +39,7 @@
     color: white;
     background-color: rgb(33, 2, 63);
     border: 1px, solid, white;
-    padding: 0,5rem;
+    padding: 0.75rem;
     border-radius: 12px;
 }
 
