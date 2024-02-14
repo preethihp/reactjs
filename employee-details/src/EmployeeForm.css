@@ -1,0 +1,61 @@
+.employee-form {
+    display:flex;
+    flex-direction: column;
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    background-color: aqua;
+    border-radius: 10px;
+}
+.name {
+    font-size: large;
+    color: darkblue;
+    font-weight: bold;
+
+}
+.name input{
+    font-size: small;
+    margin-left: 150px;
+    padding: 7px 15px;
+    border-radius: 5px;
+    
+}
+.dob {
+    font-size: large;
+    color: darkblue;
+    font-weight: bold;
+
+}
+.dob input{
+    font-size: small;
+    margin-left: 90px;
+    padding: 7px 15px;
+    border-radius: 5px;
+    
+}
+.yoe {
+    font-size: large;
+    color: darkblue;
+    font-weight: bold;
+
+}
+.yoe input{
+    padding: 7px 15px;
+    font-size: small;
+    margin-left: 30px;
+    border-radius: 5px;
+    
+}
+.button {
+    background-color: #04AA6D; 
+    border: none;
+    color: white;
+    padding: 13px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    border-radius: 5px;
+  }
+
+

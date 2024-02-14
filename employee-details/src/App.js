@@ -1,5 +1,6 @@
 import './App.css';
 import Employee from './Employee';
+import NewEmployee from './NewEmployee';
 
 function App() {
   const employees = [
@@ -10,6 +11,7 @@ function App() {
   return (
     <div>
         <h1>Employee Details</h1>
+        <NewEmployee /><br/><br/>
         <Employee details = {employees}/>
     </div>
   )
