@@ -4,6 +4,7 @@
 function EmployeeDetails(props){
 
     return(
+        <li>
         <div className="employee-details"> 
             <EmployeeDob dob={props.dob}/>
             <div className="employee-details__description">
@@ -12,6 +13,7 @@ function EmployeeDetails(props){
                 <div className="employee-yoe">{props.yoe}</div>
             </div>
         </div>
+        </li>
     )
 }
 export default EmployeeDetails;

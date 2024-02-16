@@ -1,9 +1,11 @@
 import EmployeeForm from  './EmployeeForm';
 
-const NewEmployee = () => {
+const NewEmployee = ({children}) => {
+
     return(
         <div>
-            <EmployeeForm/>
+            
+            {children}
         </div>
         
 

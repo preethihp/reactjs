@@ -1,13 +1,28 @@
 import EmployeeDetails from "./EmployeeDetails";
 import './Employee.css';
-function Employee(props){
+import EmployeeFilter from "./EmployeeFilter";
+import { useState } from "react";
+import EmployeeList  from "./EmployeeList";
+const  Employee = (props) =>{
+
+
+    const[FilteredYear, setFilteredYear] = useState('2000');
+
+    const filterHandler = selectedYear => {
+        setFilteredYear(selectedYear);
+    }
+     const filteredEmployees =props.details.filter(employee=>{
+        return employee.dob.getFullYear().toString() === FilteredYear;
+     });
+
+
     
     return(
         <div className="employee">
-            <EmployeeDetails name={props.details[0].name}dob={props.details[0].dob}yoe={props.details[0].yoe}></EmployeeDetails><br/>
-            <EmployeeDetails name={props.details[1].name}dob={props.details[1].dob}yoe={props.details[1].yoe}></EmployeeDetails><br/>
-            <EmployeeDetails name={props.details[2].name}dob={props.details[2].dob}yoe={props.details[2].yoe}></EmployeeDetails><br/>
-        </div>
+            <EmployeeFilter selected={FilteredYear} onChangeFilter={filterHandler}/><br/>
+            <EmployeeList details= {filteredEmployees} />
+
+             </div>
     );
 
 }

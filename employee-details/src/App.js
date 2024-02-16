@@ -8,10 +8,14 @@ function App() {
     {id:'e2', name:'Priya', dob:new Date(2001,5,22), yoe:'3 years'  },
     {id:'e2', name:'Anjali', dob:new Date(2000,2,18), yoe:'4 years'  }
   ]
+
+  const addEmployeeHandler = employee =>{
+    console.log(employee)
+  }
   return (
     <div>
         <h1>Employee Details</h1>
-        <NewEmployee /><br/><br/>
+        <NewEmployee  onEmployeeAdded = {addEmployeeHandler}/><br/><br/>
         <Employee details = {employees}/>
     </div>
   )

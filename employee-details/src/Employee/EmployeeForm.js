@@ -1,6 +1,12 @@
 import {useState} from  'react';
-import './EmployeeForm.css'
-const ExpenseForm = () => {
+import './EmployeeForm.css';
+import { useContext } from 'react';
+import {EmployeeContext} from "./employee-content";
+
+
+const ExpenseForm = (props) => {
+
+    const [onSaveEmployeeData] = useContext(EmployeeContext);
     const[enteredName, setEnteredName]=useState('');
     const [enteredDob,setEnteredDob] = useState('')  ;
     const[enteredYoe, setEnteredYoe]=useState('');
@@ -14,9 +20,26 @@ const ExpenseForm = () => {
     const YoeChangeHandler = (event) =>{
         setEnteredYoe(event.target.value);
     }
+    const submitHandler = (event) =>{
+        event.preventDefault();
+
+        const EmployeeData = {
+            name : enteredName,
+            dob : new Date(enteredDob),
+            yoe : enteredYoe
+
+        }
+        //console.log(EmployeeData);
+        //props.onSaveEmployeeData(EmployeeData);
+        onSaveEmployeeData(EmployeeData);
+
+        setEnteredName('');
+        setEnteredDob('');
+        setEnteredYoe('');
+    }
     
     return (
-        <form className="employee-form">
+        <form className="employee-form" onSubmit = {submitHandler}>
             <div className="name">
                 <label>Name</label>
                 <input type="text" name="name" onChange = {NameChangeHandler} value={enteredName}/><br/>
@@ -33,7 +56,7 @@ const ExpenseForm = () => {
             </div>
             <br/>
             <div >
-                <button className="button" type='submit'>Add Employee</button>
+                <button className="button" type='submit' >Add Employee</button>
             </div>
             <br/>
         </form>
