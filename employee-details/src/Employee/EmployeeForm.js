@@ -2,11 +2,14 @@ import {useState} from  'react';
 import './EmployeeForm.css';
 import { useContext } from 'react';
 import {EmployeeContext} from "./employee-content";
+import { useDispatch } from 'react-redux';
 
 
-const ExpenseForm = (props) => {
+const EmployeeForm = (props) => {
 
-    const [onSaveEmployeeData] = useContext(EmployeeContext);
+    //const {onSaveEmployeeData} = useContext(EmployeeContext);
+    const dispatch = useDispatch();
+
     const[enteredName, setEnteredName]=useState('');
     const [enteredDob,setEnteredDob] = useState('')  ;
     const[enteredYoe, setEnteredYoe]=useState('');
@@ -31,7 +34,8 @@ const ExpenseForm = (props) => {
         }
         //console.log(EmployeeData);
         //props.onSaveEmployeeData(EmployeeData);
-        onSaveEmployeeData(EmployeeData);
+        //onSaveEmployeeData(EmployeeData);
+        dispatch({type:'ADD_EMPLOYEE', payload:EmployeeData});
 
         setEnteredName('');
         setEnteredDob('');
@@ -64,4 +68,4 @@ const ExpenseForm = (props) => {
     );
 
  }
- export default  ExpenseForm; 
+ export default  EmployeeForm; 

@@ -1,3 +1,4 @@
+import './EmployeeList.css';
 import EmployeeDetails from "./EmployeeDetails";
 const EmployeeList = props => {
 
@@ -9,11 +10,10 @@ const EmployeeList = props => {
             {
                  props.details.map((employee, index) => (<EmployeeDetails 
                     key={employee.id} 
-                    name = {employee.name} 
+                    name={employee.name} 
                     dob={employee.dob} 
-                    yoe= {employee.yoe} />))
+                    yoe={employee.yoe} />))
             }
-
         </ul>
 
     )
