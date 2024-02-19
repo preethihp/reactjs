@@ -40,6 +40,29 @@ const employeeReducer = (state={details: DUMP_EMPLOYEES}, action) =>{
 
 
 }
+export const sendEmployeeData = (EmployeeData) => {
+
+    return async (dispatch) => {
+
+        const sendRequest = async () => {
+            const response = await  fetch('https://employeedata-93a1f-default-rtdb.firebaseio.com/employee.json', {
+                method: 'PUT',
+                body: JSON.stringify(EmployeeData),
+              });
+
+              if(!response.ok) {
+                throw new Error("Sending expense data failed!");
+              }
+        };
+
+        try {
+            await sendRequest();
+        }catch (error) {
+            console.log(error);
+        }
+    };
+}
+
 //const employeeStore = createStore(employeeReducer);
 const employeeStore = configureStore({
     reducer: employeeSlice.reducer

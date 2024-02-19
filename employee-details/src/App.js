@@ -5,21 +5,20 @@ import NewEmployee from './Employee/NewEmployee';
 import {EmployeeContext} from './Employee/employee-content';
 import EmployeeContextProvider from './Employee/employee-content';
 import EmployeeForm from  "./Employee/EmployeeForm";
-import { useSelector } from 'react-redux';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { sendEmployeeData } from './Store';
 
 
 function App() {
 
-  const details= useSelector(state => state.details);
+  const details = useSelector(state => state.details);
+  const dispatch = useDispatch();
+
   useEffect(
     () => {
-      fetch('https://employeedata-93a1f-default-rtdb.firebaseio.com/emplyoee.json',{
-        method:'PUT',
-        body:JSON.stringify(details)
-      })
+      dispatch(sendEmployeeData(details))
     },
-    [details]
+    [details, dispatch]
   );
   
   return (
