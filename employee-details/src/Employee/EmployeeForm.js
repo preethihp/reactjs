@@ -3,6 +3,7 @@ import './EmployeeForm.css';
 import { useContext } from 'react';
 import {EmployeeContext} from "./employee-content";
 import { useDispatch } from 'react-redux';
+import { employeeActions } from '../Store';
 
 
 const EmployeeForm = (props) => {
@@ -35,7 +36,8 @@ const EmployeeForm = (props) => {
         //console.log(EmployeeData);
         //props.onSaveEmployeeData(EmployeeData);
         //onSaveEmployeeData(EmployeeData);
-        dispatch({type:'ADD_EMPLOYEE', payload:EmployeeData});
+       // dispatch({type:'ADD_EMPLOYEE', payload:EmployeeData});
+       dispatch(employeeActions.addEmployee(EmployeeData));
 
         setEnteredName('');
         setEnteredDob('');
