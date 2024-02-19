@@ -39,6 +39,10 @@ const employeeReducer = (state={details: DUMP_EMPLOYEES}, action) =>{
     updatedEmployee.push(EmployeeData)
     return {details: updatedEmployee};
     }
+    if (action.type === 'REMOVE_EMPLOYEE') {
+        const updatedEmployees = updatedEmployee.filter(employee => employee.id !== action.payload.id);
+        return { details: updatedEmployees };
+    }
     return  state; 
 
 
@@ -64,7 +68,32 @@ export const sendEmployeeData = (EmployeeData) => {
             console.log(error);
         }
     };
+    
 }
+export const removeEmployee = (EmployeeData) => {
+    return async (dispatch) => {
+        const sendRequest = async () => {
+            const response = await fetch(`https://employeedata-93a1f-default-rtdb.firebaseio.com/employee/${EmployeeData.id}.json`, {
+                method: 'DELETE',
+            });
+
+            if (!response.ok) {
+                throw new Error("Deleting employee failed!");
+            }
+        };
+
+        try {
+            await sendRequest();
+            dispatch({
+                type: 'REMOVE_EMPLOYEE',
+                payload: EmployeeData
+            });
+        } catch (error) {
+            console.log(error);
+        }
+    };
+};
+
 
 //const employeeStore = createStore(employeeReducer);
 const employeeStore = configureStore({

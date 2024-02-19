@@ -14,6 +14,7 @@ const EmployeeDetails = (props) => {
         console.log(EmployeeData);
         props.setRefresh(prev => !prev);
     };
+    
     return (
         <div className={`employee-details ${isDeleted ? 'deleted' : ''}`}>
             {isDeleted ? (
