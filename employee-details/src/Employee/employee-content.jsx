@@ -13,11 +13,13 @@ function employeeReducer(state, action){
             id: Math.random().toString()
         };
     
-    //setEmployees((previousEmployee) => {
-    //return [EmployeeData, ...previousEmployee ];
-    //});
-
     updatedEmployee.push(EmployeeData)
+    }
+    if(action.type === 'REMOVE_EXPENSE') {
+        const employeeIndex = updatedEmployee.findIndex(employee => employee.id === action.payload.id);
+        if (employeeIndex !== -1) {
+            updatedEmployee.splice(employeeIndex, 1);
+        }
     }
     return  updatedEmployee; 
 

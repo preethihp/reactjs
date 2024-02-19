@@ -47,4 +47,13 @@
     border-radius: 12px;
 }
 
-
+.employee-delete {
+    font-size: 1rem ;
+    font-weight: bold;
+    border: 1px, solid, white;
+    padding: 0.75rem;
+    border-radius: 12px;
+}
+.employee-deleted-message{
+    color: white;
+}

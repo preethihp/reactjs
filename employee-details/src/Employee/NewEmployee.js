@@ -6,6 +6,7 @@ const NewEmployee = ({children}) => {
         <div>
             
             {children}
+           
         </div>
         
 

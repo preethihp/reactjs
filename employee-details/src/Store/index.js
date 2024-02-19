@@ -12,7 +12,7 @@ const initialState = {details:DUMP_EMPLOYEES};
 const employeeSlice = createSlice({
     name: "employee",
     initialState:initialState,
-    reduces: {
+    reducers: {
         addEmployee(state, action){
             const employeeData = {
                 ...action.payload,
@@ -20,7 +20,10 @@ const employeeSlice = createSlice({
             };
             state.details.push(employeeData);
         },
-        removeEmployee(state,action){}
+        removeEmployee(state, action) {
+            const idToRemove = action.payload;
+            state.details = state.details.filter(employee => employee.id !== idToRemove);
+        }
     }
 });
 
